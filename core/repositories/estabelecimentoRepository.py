@@ -1,23 +1,36 @@
 from django.db import connections
 
+
 class EstabelecimentoRepository:
-    
-    
+
     @staticmethod
     def retornar_resumo(cnes):
         with connections['cnes'].cursor() as cursor:
-           cursor.execute("""
+
+            cursor.execute("""
                 SELECT 
                     e.cnes,
                     e.nomefantasia,
-                    e.codigomunicipio,
-                    COUNT(pv.id) as total_profissionais
+                    e.idmunicipio
                 FROM estabelecimentos e
-                LEFT JOIN profissionaisvinculosnosestabelecimentos pv
-                    ON pv.cnes = e.cnes
                 WHERE e.cnes = %s
-                GROUP BY e.cnes, e.nomefantasia, e.codigomunicipio
             """, [cnes])
 
-           return cursor.fetchone()
-   
+            estabelecimento = cursor.fetchone()
+
+            if not estabelecimento:
+                return None
+
+            cursor.execute("""
+                SELECT COUNT(*)
+                FROM profissionaisvinculosnosestabelecimentos
+            """)
+
+            total = cursor.fetchone()[0]
+
+            return (
+                estabelecimento[0],
+                estabelecimento[1],
+                estabelecimento[2],
+                total
+            )

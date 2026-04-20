@@ -5,7 +5,7 @@ class EstabelecimentoService:
     
     @staticmethod
     def retornar_resumo(cnes):
-        resultado = EstabelecimentoRepository.retornarResumo(cnes)
+        resultado = EstabelecimentoRepository.retornar_resumo(cnes)
         if resultado:
                 return {
                     'cnes_id': resultado[0],
