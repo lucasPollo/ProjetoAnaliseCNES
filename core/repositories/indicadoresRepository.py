@@ -12,12 +12,10 @@ class IndicadoresRepository:
                     COUNT(*) as total
                 FROM profissionaisvinculosnosestabelecimentos pv
                 JOIN estabelecimentos e
-                    ON pv.idestabelecimento LIKE e.cnes || '%'
+                    ON pv.idestabelecimento LIKE (e.cnes::text || '%')
                 WHERE e.idmunicipio = %s
                 GROUP BY pv.idespecialidade
                 ORDER BY total DESC
             """, [municipio])
 
-            resultados = cursor.fetchall()
-
-            return resultados
+            return cursor.fetchall()

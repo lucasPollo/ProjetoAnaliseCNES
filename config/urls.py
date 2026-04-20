@@ -19,11 +19,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from core.views.estabelecimentoView import resumo_estabelecimento
+from core.views.indicadoresView import distribuicao_cbo
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/estabelecimento/<int:cnes>/resumo/', resumo_estabelecimento)
+    path('api/estabelecimento/<int:cnes>/resumo/', resumo_estabelecimento),
+    path('api/indicadores/distribuicao-cbo/', distribuicao_cbo),
 ]
 
-
+    
 #corrigir problemas na view
