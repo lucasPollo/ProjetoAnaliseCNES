@@ -77,17 +77,17 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME', default='app_db'),
+        'NAME': config('DB_NAME', default='dbInterno'),
         'USER': config('DB_USER', default='postgres'),
-        'PASSWORD': config('DB_PASSWORD', default='123456'),
+        'PASSWORD': config('DB_PASSWORD', default='root'),
         'HOST': config('DB_HOST', default='localhost'),
         'PORT': config('DB_PORT', default='5432'),
     },
     'cnes': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('CNES_DB_NAME', default='cnes'),
+        'NAME': config('CNES_DB_NAME', default='dbCnes'),
         'USER': config('CNES_DB_USER', default='postgres'),
-        'PASSWORD': config('CNES_DB_PASSWORD', default='123456'),
+        'PASSWORD': config('CNES_DB_PASSWORD', default='root'),
         'HOST': config('CNES_DB_HOST', default='localhost'),
         'PORT': config('CNES_DB_PORT', default='5432'),
     }
@@ -116,9 +116,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
