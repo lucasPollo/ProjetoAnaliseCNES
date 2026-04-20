@@ -20,12 +20,13 @@ from django.contrib import admin
 from django.urls import path
 from core.views.estabelecimentoView import resumo_estabelecimento
 from core.views.indicadoresView import distribuicao_cbo
+from core.views.analiseView import sobrecarga
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/estabelecimento/<int:cnes>/resumo/', resumo_estabelecimento),
     path('api/indicadores/distribuicao-cbo/', distribuicao_cbo),
+    path('api/analise/sobrecarga/', sobrecarga),
 ]
 
-    
-#corrigir problemas na view
