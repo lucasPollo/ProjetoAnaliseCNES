@@ -11,26 +11,13 @@ class EstabelecimentoRepository:
                 SELECT 
                     e.cnes,
                     e.nomefantasia,
-                    e.idmunicipio
+                    e.idmunicipio,
+                    COUNT(pv.idprofissional) AS total_profissionais
                 FROM estabelecimentos e
+                LEFT JOIN profissionaisvinculosnosestabelecimentos pv
+                    ON pv.idestabelecimento = e.idestabelecimento
                 WHERE e.cnes = %s
+                GROUP BY e.cnes, e.nomefantasia, e.idmunicipio
             """, [cnes])
 
-            estabelecimento = cursor.fetchone()
-
-            if not estabelecimento:
-                return None
-
-            cursor.execute("""
-                SELECT COUNT(*)
-                FROM profissionaisvinculosnosestabelecimentos
-            """)
-
-            total = cursor.fetchone()[0]
-
-            return (
-                estabelecimento[0],
-                estabelecimento[1],
-                estabelecimento[2],
-                total
-            )
+            return cursor.fetchone()
