@@ -7,7 +7,7 @@ def resumo_estabelecimento(request, cnes):
 
     if not data:
         return JsonResponse(
-            {'error': 'Estabelecimento não encontrado'},
+            {'erro': 'informe um codigo cnes valido'},
             status=404
         )
 

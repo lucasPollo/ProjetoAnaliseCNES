@@ -1,24 +1,38 @@
+from django.db import connections
+
+
 class IndicadoresRepository:
 
     @staticmethod
     def distribuicao_cbo(municipio):
-        from django.db import connections
-
         with connections['cnes'].cursor() as cursor:
 
             cursor.execute("""
                 SELECT 
-                    m.nome AS municipio,
+                    m.nomemunicipio AS municipio,
                     pv.idespecialidade AS cbo,
-                    COUNT(*) as total
+                    esp.nomedaespecialidade AS nome_cbo,
+                    COUNT(*) AS total
                 FROM profissionaisvinculosnosestabelecimentos pv
+
                 JOIN estabelecimentos e
                     ON pv.idestabelecimento = e.idestabelecimento
+
                 JOIN municipios m
                     ON e.idmunicipio = m.idmunicipio
+
+                LEFT JOIN especialidades esp
+                    ON pv.idespecialidade = esp.idespecialidade
+
                 WHERE e.idmunicipio = %s
-                GROUP BY m.nome, pv.idespecialidade
+
+                GROUP BY 
+                    m.nomemunicipio, 
+                    pv.idespecialidade, 
+                    esp.nomedaespecialidade
                 ORDER BY total DESC
             """, [municipio])
+
+
 
             return cursor.fetchall()

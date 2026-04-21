@@ -5,12 +5,13 @@ class IndicadoresService:
     @staticmethod
     def distribuicao_cbo(municipio):
         resultados = IndicadoresRepository.distribuicao_cbo(municipio)
-
-        return [
+        if resultados:
+         return [
             {
                 "municipio": r[0],
                 "cbo": r[1],
-                "total": r[2]
+                "nome_cbo": r[2],
+                "total": r[3]
             }
             for r in resultados
         ]
