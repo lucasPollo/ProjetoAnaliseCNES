@@ -12,7 +12,15 @@ venv\Scripts\activate
 
 pip install -r requirements.txt
 
+-4 rodar o servidor
+python manage.py runserver
 
+
+-5 teste de endpoints localmente
+
+http://127.0.0.1:8000/api/estabelecimento/2569302/resumo/
+http://127.0.0.1:8000/api/indicadores/distribuicao-cbo/?municipio=260960
+http://127.0.0.1:8000/api/analise/sobrecarga/
 
 
 
