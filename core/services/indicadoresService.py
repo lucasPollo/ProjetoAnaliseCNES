@@ -8,10 +8,10 @@ class IndicadoresService:
         if resultados:
          return [
             {
-                "municipio": r[0],
-                "cbo": r[1],
-                "nome_cbo": r[2],
-                "total": r[3]
+                "municipio": resultado[0],
+                "cbo": resultado[1],
+                "nome_cbo": resultado[2],
+                "total": resultado[3]
             }
-            for r in resultados
+            for resultado in resultados
         ]

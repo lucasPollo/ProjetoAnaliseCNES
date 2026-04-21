@@ -22,7 +22,15 @@ class AnaliseRepository:
                     COALESCE(pv.cargahorariahospitalar, 0) +
                     COALESCE(pv.cargahorariaoutros, 0)
                 ) > 60
-                ORDER BY carga_total DESC
+                ORDER BY carga_total ASC
             """)
 
-            return cursor.fetchall()
+            colunas = [col[0] for col in cursor.description]
+
+            return [
+                dict(zip(colunas, row))
+                for row in cursor.fetchall()
+            ]
+            
+            
+            

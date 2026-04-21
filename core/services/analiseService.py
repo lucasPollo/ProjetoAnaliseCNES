@@ -9,8 +9,8 @@ class AnaliseService:
 
         return [
             {
-                "cns": r[0],
-                "carga_total": r[1]
+                "id_profissional": resultado["idprofissional"],
+                "carga_total": resultado["carga_total"]
             }
-            for r in resultados
+            for resultado in resultados
         ]
