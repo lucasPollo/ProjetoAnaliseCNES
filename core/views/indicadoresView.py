@@ -4,6 +4,8 @@ from core.services.indicadoresService import IndicadoresService
 
 def distribuicao_cbo(request):
     municipio = request.GET.get('municipio')
+    
+    print(municipio)
 
     if not municipio:
         return JsonResponse({"error": "parametro de municipio obrigatorio"}, status=400)

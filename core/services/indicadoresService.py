@@ -1,6 +1,5 @@
+
 from core.repositories.indicadoresRepository import IndicadoresRepository
-
-
 class IndicadoresService:
 
     @staticmethod
@@ -9,8 +8,9 @@ class IndicadoresService:
 
         return [
             {
-                "cbo": r[0],
-                "total": r[1]
+                "municipio": r[0],
+                "cbo": r[1],
+                "total": r[2]
             }
             for r in resultados
         ]

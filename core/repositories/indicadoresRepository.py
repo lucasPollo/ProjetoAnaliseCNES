@@ -8,13 +8,16 @@ class IndicadoresRepository:
 
             cursor.execute("""
                 SELECT 
+                    m.nome AS municipio,
                     pv.idespecialidade AS cbo,
                     COUNT(*) as total
                 FROM profissionaisvinculosnosestabelecimentos pv
                 JOIN estabelecimentos e
-                    ON pv.idestabelecimento LIKE (e.cnes::text || '%')
+                    ON pv.idestabelecimento = e.idestabelecimento
+                JOIN municipios m
+                    ON e.idmunicipio = m.idmunicipio
                 WHERE e.idmunicipio = %s
-                GROUP BY pv.idespecialidade
+                GROUP BY m.nome, pv.idespecialidade
                 ORDER BY total DESC
             """, [municipio])
 
