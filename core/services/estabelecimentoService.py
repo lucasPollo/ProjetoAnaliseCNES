@@ -11,6 +11,7 @@ class EstabelecimentoService:
                     'cnes_id': resultado[0],
                     'nome': resultado[1],
                     'municipio': resultado[2],
-                    'total_profissionais': resultado[3]
+                    'nome_municipio': resultado[3],
+                    'total_profissionais': resultado[4]
                 }
         return None
