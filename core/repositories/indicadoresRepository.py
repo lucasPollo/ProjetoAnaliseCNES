@@ -14,18 +14,13 @@ class IndicadoresRepository:
                     esp.nomedaespecialidade AS nome_cbo,
                     COUNT(*) AS total
                 FROM profissionaisvinculosnosestabelecimentos pv
-
                 JOIN estabelecimentos e
                     ON pv.idestabelecimento = e.idestabelecimento
-
                 JOIN municipios m
                     ON e.idmunicipio = m.idmunicipio
-
                 LEFT JOIN especialidades esp
                     ON pv.idespecialidade = esp.idespecialidade
-
                 WHERE e.idmunicipio = %s
-
                 GROUP BY 
                     m.nomemunicipio, 
                     pv.idespecialidade, 
