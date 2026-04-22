@@ -1,4 +1,7 @@
-Guia de instalacão
+Guia de instalacão e setup
+
+-Temos dois bancos de dados, o primeiro default(dbInterno) eo segundo de leitura(dbCnes),
+para configuraçao adicione os dois no arquivo de settings.py, os dados necessarios para cada um estão no arquivo .env
 
 -1 clonar o repositorio
 
