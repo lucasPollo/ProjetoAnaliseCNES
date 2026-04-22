@@ -1,3 +1,5 @@
+Guia de Setup
+
 -1 clonar o repositorio
 
 git clone https://github.com/lucasPollo/ProjetoAnaliseCNES.git
@@ -61,6 +63,37 @@ profissional e a soma total de carga horaria superior a 60 horas
 nome da tabela no banco=====nome da tabela no endpoint
 idprofissional = id_profissional
 soma de carga horaria = carga_total
+
+
+
+-----------------------------------------------------------------------------
+Desenho da Arquitetura(explicação visual em imgs/arquiteturaProjeto)
+
+
+VIEW:
+Responsavel por receber as 
+requisições HTTP dos usuários (endpoints da API) 
+e retornar as respostas em formato JSON
+
+
+SERVICE:
+Responsavel por processar 
+os dados recebidos do repository e aplicar as regras do sistema
+
+REPOSITORY:
+Responsavel por executar as 
+consultas SQL diretamente no banco 
+de dados CNES, essa camada isola o SQL das 
+demais partes do sistema
+
+
+
+
+
+
+
+
+
 
 
 
