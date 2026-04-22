@@ -28,9 +28,13 @@ http://127.0.0.1:8000/api/analise/sobrecarga/
 -------------------------------------------------------------------
 Dicionário de Dados
 
--No primeiro endopoint retorna o id do cnes, o nome do
+-No primeiro endpoint(estabelecimento) retorna o id do cnes, o nome do
 estabelecimento, o id do municipio, o nome do municipio e total de profissionais, teve que
 ser usado join com as tabelas de municipios e  profissionaisvinculosnosestabelecimentos
+
+
+dados na esquerda = nomes reais no db
+dados na direita = nomes usados nos retornos json
 
 cnes = cnes_id
 nomefantasia = nome
@@ -39,14 +43,24 @@ nomemunicipio = nome_municipio
 contagem de id profissionais = total_profissionais
 
 
--No segundo endpoint retorna o nome do municipio, o id do cbo, o
+-No segundo endpoint(indicadores) retorna o nome do municipio, o id do cbo, o
 nome do cbo e o total de profssionais, foi utilizado junçao com
 estabelecimentos, municipios e especialidades
 
+
+nome da tabela no banco=====nome da tabela no endpoint
 municipio = nomemunicipio
 idespecialidade = cbo
 nomedaespecialidade = nome_cbo
 soma de profissioanis = total
+
+
+-No ultimo endpoint(analise) retorna o id do 
+profissional e a soma total de carga horaria superior a 60 horas
+
+nome da tabela no banco=====nome da tabela no endpoint
+idprofissional = id_profissional
+soma de carga horaria = carga_total
 
 
 
