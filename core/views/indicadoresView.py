@@ -4,11 +4,11 @@ from core.services.indicadoresService import IndicadoresService
 
 def distribuicao_cbo(request):
     municipio = request.GET.get('municipio')
+    dadosService = IndicadoresService.distribuicao_cbo(municipio)
     print(municipio)
 
     if not municipio:
         return JsonResponse({"erro": "obrigatorio passar um municipio id"}, status=400)
 
-    data = IndicadoresService.distribuicao_cbo(municipio)
 
-    return JsonResponse(data, safe=False)
+    return JsonResponse(dadosService, safe=False)

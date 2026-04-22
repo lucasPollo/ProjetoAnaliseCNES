@@ -1,11 +1,11 @@
-Guia de Setup
+Guia de instalacão
 
 -1 clonar o repositorio
 
 git clone https://github.com/lucasPollo/ProjetoAnaliseCNES.git
 cd ProjetoAnaliseCnes
 
--2 ativar o ambiente virtual
+-2 criar e ativar o ambiente virtual
 
 python -m venv venv
 venv\Scripts\activate  
@@ -23,8 +23,6 @@ python manage.py runserver
 http://127.0.0.1:8000/api/estabelecimento/2569302/resumo/
 http://127.0.0.1:8000/api/indicadores/distribuicao-cbo/?municipio=260960
 http://127.0.0.1:8000/api/analise/sobrecarga/
-
-
 
 
 -------------------------------------------------------------------
@@ -87,7 +85,16 @@ de dados CNES, essa camada isola o SQL das
 demais partes do sistema
 
 
+--------------------------------------------------------------------
+Explicação Tecnica
 
+O mapeamento dos dados foi feito atraves das tuplas retornadas, com o uso do cursor.execute, foi
+feita a conversao das tuplas em dicionarios, utilizei cursor.description e zip com
+dict para estruturar os dados melhor no repositorio de analise, e nos outros apenas fetchone e fetchall
+Falando sobre a segurança, utilizei de parametros nas consultas sql, passando valores recebidos 
+utilizandos %s, para que o proprio db trate esses valores de forma segura, alem disso utilizei a 
+estrutura de conexoes with connections, que fecha automaticamento o cursor apos a consulta requerida garantindo
+ainda mais segurança contra sql injection
 
 
 
