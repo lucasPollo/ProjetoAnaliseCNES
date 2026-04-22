@@ -48,7 +48,6 @@ nome do cbo e o total de profssionais, foi utilizado junçao com
 estabelecimentos, municipios e especialidades
 
 
-nome da tabela no banco=====nome da tabela no endpoint
 municipio = nomemunicipio
 idespecialidade = cbo
 nomedaespecialidade = nome_cbo
@@ -58,7 +57,6 @@ soma de profissioanis = total
 -No ultimo endpoint(analise) retorna o id do 
 profissional e a soma total de carga horaria superior a 60 horas
 
-nome da tabela no banco=====nome da tabela no endpoint
 idprofissional = id_profissional
 soma de carga horaria = carga_total
 
