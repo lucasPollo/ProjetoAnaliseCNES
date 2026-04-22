@@ -1,7 +1,7 @@
 Guia de instalacão e setup
 
 -Temos dois bancos de dados, o primeiro default(dbInterno) eo segundo de leitura(dbCnes),
-para configuração adicione os dois no arquivo de settings.py, os dados necessarios para cada um estão no arquivo .env
+para configuração, crie cada um localmente(Dbeaver ou PgAdmin) e adicione os dois no arquivo de settings.py, os dados necessarios para cada um estão no arquivo .env
 
 -1 clonar o repositorio
 
@@ -23,8 +23,26 @@ python manage.py runserver
 
 -5 teste de endpoints localmente
 
+cnes para teste:
+2682818
+2760223
+2127849
+
 http://127.0.0.1:8000/api/estabelecimento/2569302/resumo/
+
+
+
+id municipio para teste:
+430350
+430410
+420540
+
+
 http://127.0.0.1:8000/api/indicadores/distribuicao-cbo/?idmunicipio=260960
+
+
+
+
 http://127.0.0.1:8000/api/analise/sobrecarga/
 
 
