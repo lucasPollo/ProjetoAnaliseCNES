@@ -1,5 +1,6 @@
-
 from core.repositories.indicadoresRepository import IndicadoresRepository
+
+
 class IndicadoresService:
 
     @staticmethod
