@@ -1,7 +1,7 @@
 Guia de instalacão e setup
 
 -Temos dois bancos de dados, o primeiro default(dbInterno) eo segundo de leitura(dbCnes),
-para configuraçao adicione os dois no arquivo de settings.py, os dados necessarios para cada um estão no arquivo .env
+para configuração adicione os dois no arquivo de settings.py, os dados necessarios para cada um estão no arquivo .env
 
 -1 clonar o repositorio
 
@@ -47,7 +47,7 @@ contagem de id profissionais = total_profissionais
 
 
 -No segundo endpoint(indicadores) retorna o nome do municipio, o id do cbo, o
-nome do cbo e o total de profssionais, foi utilizado junçao com
+nome do cbo e o total de profssionais, foi utilizado junção com
 estabelecimentos, municipios e especialidades
 
 
@@ -70,17 +70,17 @@ Desenho da Arquitetura(explicação visual em imgs/arquiteturaProjeto)
 
 
 VIEW:
-Responsavel por receber as 
+Responsável por receber as 
 requisições HTTP dos usuários (endpoints da API) 
 e retornar as respostas em formato JSON
 
 
 SERVICE:
-Responsavel por processar 
+Responsável por processar 
 os dados recebidos do repository e aplicar as regras do sistema
 
 REPOSITORY:
-Responsavel por executar as 
+Responsável por executar as 
 consultas SQL diretamente no banco 
 de dados CNES, essa camada isola o SQL das 
 demais partes do sistema
@@ -89,12 +89,12 @@ demais partes do sistema
 --------------------------------------------------------------------
 Explicação Tecnica
 
-O mapeamento dos dados foi feito atraves das tuplas retornadas, com o uso do cursor.execute, foi
-feita a conversao das tuplas em dicionarios, utilizei cursor.description e zip com
+O mapeamento dos dados foi feito através das tuplas retornadas, com o uso do cursor.execute, foi
+feita a conversão das tuplas em dicionarios, utilizei cursor.description e zip com
 dict para estruturar os dados melhor no repositorio de analise, e nos outros apenas fetchone e fetchall
 Falando sobre a segurança, utilizei de parametros nas consultas sql, passando valores recebidos 
-utilizandos %s, para que o proprio db trate esses valores de forma segura, alem disso utilizei a 
-estrutura de conexoes with connections, que fecha automaticamento o cursor apos a consulta requerida garantindo
+utilizandos %s, para que o próprio db trate esses valores de forma segura, além disso utilizei a 
+estrutura de conexões with connections, que fecha automaticamento o cursor após a consulta requerida garantindo
 ainda mais segurança contra sql injection
 
 
